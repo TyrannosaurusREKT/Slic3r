@@ -228,7 +228,7 @@ sub make_fill {
         } else {
             $f->spacing($flow->spacing);
         }
-        
+        $f->infill_alternate($layerm->config->infill_alternate);
         $f->layer_id($layerm->id);
         $f->z($layerm->print_z);
         $f->angle(deg2rad($layerm->config->fill_angle));

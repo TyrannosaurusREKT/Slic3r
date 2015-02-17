@@ -392,6 +392,7 @@ $j
     --infill-only-where-needed
                         Only infill under ceilings (default: no)
     --infill-first      Make infill before perimeters (default: no)
+    --infill-alternate  Cross-hatch infill (default: yes)
   
    Quality options (slower slicing):
     --extra-perimeters  Add more perimeters when needed (default: yes)

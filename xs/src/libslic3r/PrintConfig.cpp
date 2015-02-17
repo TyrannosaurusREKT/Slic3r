@@ -425,6 +425,11 @@ PrintConfigDef::build_def() {
     Options["infill_first"].tooltip = "This option will switch the print order of perimeters and infill, making the latter first.";
     Options["infill_first"].cli = "infill-first!";
 
+    Options["infill_alternate"].type = coBool;
+    Options["infill_alternate"].label = "Cross-hatch each infill layer";
+    Options["infill_alternate"].tooltip = "Enabled = each layer will be perpendicular to the last. Disabled = each layer is parallel to previous.  Does not apply to Honeycomb/Planepath fill patterns.";
+    Options["infill_alternate"].cli = "infill-alternate!";
+
     Options["infill_only_where_needed"].type = coBool;
     Options["infill_only_where_needed"].label = "Only infill where needed";
     Options["infill_only_where_needed"].category = "Infill";

@@ -448,7 +448,7 @@ sub build {
         fill_density fill_pattern external_fill_pattern
         infill_every_layers infill_only_where_needed
         solid_infill_every_layers fill_angle solid_infill_below_area 
-        only_retract_when_crossing_perimeters infill_first
+        only_retract_when_crossing_perimeters infill_first infill_alternate
         perimeter_speed small_perimeter_speed external_perimeter_speed infill_speed 
         solid_infill_speed top_solid_infill_speed support_material_speed 
         support_material_interface_speed bridge_speed gap_fill_speed
@@ -533,6 +533,7 @@ sub build {
             $optgroup->append_single_option_line('solid_infill_below_area');
             $optgroup->append_single_option_line('only_retract_when_crossing_perimeters');
             $optgroup->append_single_option_line('infill_first');
+            $optgroup->append_single_option_line('infill_alternate');
         }
     }
     
@@ -755,7 +756,7 @@ sub _update {
             solid_infill_speed);
     
     $self->get_field($_)->toggle($have_infill || $have_solid_infill)
-        for qw(fill_angle infill_extrusion_width infill_speed bridge_speed);
+        for qw(fill_angle infill_alternate infill_extrusion_width infill_speed bridge_speed);
     
     $self->get_field('gap_fill_speed')->toggle($have_perimeters && $have_infill);
     

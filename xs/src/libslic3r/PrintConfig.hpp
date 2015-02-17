@@ -219,6 +219,7 @@ class PrintRegionConfig : public virtual StaticPrintConfig
     ConfigOptionBool                external_perimeters_first;
     ConfigOptionBool                extra_perimeters;
     ConfigOptionInt                 fill_angle;
+    ConfigOptionBool                infill_alternate;
     ConfigOptionPercent             fill_density;
     ConfigOptionEnum<InfillPattern> fill_pattern;
     ConfigOptionFloat               gap_fill_speed;
@@ -255,6 +256,7 @@ class PrintRegionConfig : public virtual StaticPrintConfig
         this->external_perimeters_first.value                    = false;
         this->extra_perimeters.value                             = true;
         this->fill_angle.value                                   = 45;
+        this->infill_alternate.value                             = true;
         this->fill_density.value                                 = 20;
         this->fill_pattern.value                                 = ipHoneycomb;
         this->gap_fill_speed.value                               = 20;
@@ -298,6 +300,7 @@ class PrintRegionConfig : public virtual StaticPrintConfig
         if (opt_key == "external_perimeters_first")                  return &this->external_perimeters_first;
         if (opt_key == "extra_perimeters")                           return &this->extra_perimeters;
         if (opt_key == "fill_angle")                                 return &this->fill_angle;
+        if (opt_key == "infill_alternate")                           return &this->infill_alternate;
         if (opt_key == "fill_density")                               return &this->fill_density;
         if (opt_key == "fill_pattern")                               return &this->fill_pattern;
         if (opt_key == "gap_fill_speed")                             return &this->gap_fill_speed;

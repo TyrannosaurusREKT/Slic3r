@@ -4,6 +4,7 @@ use Moo;
 has 'layer_id'            => (is => 'rw');
 has 'z'                   => (is => 'rw'); # in unscaled coordinates
 has 'angle'               => (is => 'rw'); # in radians, ccw, 0 = East
+has 'infill_alternate'    => (is => 'rw');
 has 'spacing'             => (is => 'rw'); # in unscaled coordinates
 has 'loop_clipping'       => (is => 'rw', default => sub { 0 }); # in scaled coordinates
 has 'bounding_box'        => (is => 'ro', required => 0);  # Slic3r::Geometry::BoundingBox object
@@ -28,7 +29,14 @@ use Moo::Role;
 
 use Slic3r::Geometry qw(PI rad2deg);
 
-sub angles () { [0, PI/2] }
+sub angles () {
+    my $self = shift;
+    if ($self->{infill_alternate}) {
+        return [0, PI/2];
+    } else {
+        return [0];
+    }
+}
 
 sub infill_direction {
     my $self = shift;
